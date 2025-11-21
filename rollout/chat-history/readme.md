@@ -1,3 +1,6 @@
+
+https://claude.ai/chat/dca81229-2456-4fc1-b64d-7c2434e99ade
+
 ```User
 
 glad that you think this way too, after demo-ing my doc-agent today, an interesting use-case came up, which is to use my doc-agent to prepare CLAUDE.md and other contextual .md files across thousands of git repos, to be consumed by downstream agent army, in order to improve code quality and even adding features by agents, fixing bug, very exciting opportunity for doc-agent, initially build to solve documentation problem, now turned into knowledge management and code management via AI

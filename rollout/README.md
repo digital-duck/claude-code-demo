@@ -1,7 +1,15 @@
 # AI-Powered Code Modernization Platform
+
+Chat-history is found at `~/projects/digital-duck/claude-code-demo/rollout/chat-history/readme.md`
+
 ## Documentation and Implementation Guide
 
-This repository contains the complete toolkit for implementing an AI-powered code modernization platform that can autonomously improve code quality, add features, and fix bugs across thousands of repositories.
+This repository contains the complete toolkit for implementing an AI-powered code modernization platform that can autonomously improve 
+- code quality, 
+- add features, 
+- fix bugs across thousands of repositories
+- generate update-to-date, standardized documents
+- generate contextual text for agents
 
 ---
 
@@ -69,6 +77,8 @@ python batch_repo_processor.py /path/to/repos --workers 8 --filter "data-*"
 ### 3. **executive_pitch.md**
 Comprehensive executive presentation for IT leadership to secure buy-in and resources.
 
+- `../docs/executive_pitch.md`
+
 **Contents:**
 - Executive summary with key outcomes
 - Business problem and current state analysis
@@ -90,6 +100,9 @@ Comprehensive executive presentation for IT leadership to secure buy-in and reso
 
 ### 4. **pipeline_diagrams.md**
 Collection of Mermaid diagrams visualizing the entire system architecture.
+
+- see `../docs/pipeline_diagrams.md`
+
 
 **Includes:**
 - Full pipeline diagram (5 phases)
@@ -190,6 +203,9 @@ batch_processor.export_repo_index("repo_index.md")
 
 ## 📊 Generated Documentation Structure
 
+
+see specification sample at `docs/anthropic/spec-sample`
+
 For each repository, the system generates:
 
 ```
@@ -203,6 +219,8 @@ repository/
 ```
 
 ### CLAUDE.md Structure
+
+see `../docs/spec-sample/CLAUDE_md_sample.md`
 
 ```markdown
 # Repository Name - AI Agent Context
@@ -335,7 +353,8 @@ if test_results.passed:
     submit_for_review(changes)
 ```
 
-### Supported Agent Types
+### Agent-Army - Supported Types
+
 
 1. **Code Quality Agent** - Refactoring, style consistency
 2. **Feature Development Agent** - Pattern-based enhancements
@@ -398,7 +417,7 @@ if test_results.passed:
 
 ### Use the Executive Pitch
 
-The `executive_pitch.md` file contains everything you need:
+The `../docs/executive_pitch.md` file contains everything you need:
 
 1. **Business case** with ROI calculations
 2. **Implementation roadmap** with timelines
@@ -450,7 +469,7 @@ The `executive_pitch.md` file contains everything you need:
 
 ## 🎉 Next Steps
 
-1. **Review the executive pitch** (`executive_pitch.md`)
+1. **Review the executive pitch** (`../docs/executive_pitch.md`)
 2. **Run a pilot** with 10-20 repositories
 3. **Present findings** to leadership
 4. **Secure approval** for full deployment

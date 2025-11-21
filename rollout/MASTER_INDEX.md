@@ -1,5 +1,7 @@
 # Complete Artifact Collection - Master Index
 
+- see chat-history at https://claude.ai/chat/dca81229-2456-4fc1-b64d-7c2434e99ade
+
 ## Overview
 
 This collection contains everything you need to:
@@ -15,25 +17,25 @@ This collection contains everything you need to:
 
 ### Goal: Present to Management
 **Read First:**
-1. [executive_pitch.md](#executive_pitchmd) - Full business case
-2. [pipeline_diagrams.md](#pipeline_diagramsmd) - Visual architecture
+1. [./docs/executive_pitch.md](#executive_pitchmd) - Full business case
+2. [./docs/pipeline_diagrams.md](#pipeline_diagramsmd) - Visual architecture
 3. [README.md](#readmemd) - Implementation overview
 
 ### Goal: Collaborate with Claude Code Team
 **Read First:**
-1. [claude_code_partnership_proposal.md](#claude_code_partnership_proposalmd) - Partnership pitch
-2. [claude_code_integration.md](#claude_code_integrationmd) - Technical integration guide
-3. [claude_code_workflow_diagrams.md](#claude_code_workflow_diagramsmd) - Visual workflows
+1. [./anthropic/claude_code_partnership_proposal.md](#claude_code_partnership_proposalmd) - Partnership pitch
+2. [./anthropic/claude_code_integration.md](#claude_code_integrationmd) - Technical integration guide
+3. [./anthropic/claude_code_workflow_diagrams.md](#claude_code_workflow_diagramsmd) - Visual workflows
 
 ### Goal: Implement the Solution
 **Read First:**
-1. [context_doc_generator.py](#context_doc_generatorpy) - Core Python module
-2. [batch_repo_processor.py](#batch_repo_processorpy) - Batch processing script
-3. [QUICK_REFERENCE.md](#quick_referencemd) - Commands and workflows
+1. [./src/context_doc_generator.py](#context_doc_generatorpy) - Core Python module
+2. [./src/batch_repo_processor.py](#batch_repo_processorpy) - Batch processing script
+3. [./src/QUICK_REFERENCE.md](#quick_referencemd) - Commands and workflows
 
 ### Goal: Understand the Output
 **Read First:**
-1. [CLAUDE_md_sample.md](#claude_md_samplemd) - Example generated file
+1. [./docs/anthropic/sample/CLAUDE_md_sample.md](#claude_md_samplemd) - Example generated file
 2. [README.md](#readmemd) - Documentation structure guide
 
 ---
