@@ -1,0 +1,295 @@
+# Claude Code Rules
+
+## General Preferences
+
+### Code Style
+- Use TypeScript for all new files
+- Follow the Airbnb style guide with project modifications
+- Use 2 spaces for indentation
+- Maximum line length: 100 characters
+- Use single quotes for strings (except for avoiding escapes)
+- Always use semicolons
+- Prefer const over let, never use var
+
+### File Naming
+- Use kebab-case for file names: `user-service.ts`
+- Use PascalCase for component files: `UserProfile.tsx`
+- Test files: `*.test.ts` or `*.spec.ts`
+- Type definition files: `*.types.ts`
+
+### Import Organization
+```typescript
+// 1. External dependencies
+import React from 'react';
+import { useState } from 'react';
+
+// 2. Internal modules (absolute imports)
+import { UserService } from '@/services/user-service';
+import { Button } from '@/components/Button';
+
+// 3. Relative imports
+import { helper } from './helper';
+import type { UserData } from './types';
+
+// 4. Styles
+import styles from './styles.module.css';
+```
+
+## Code Generation Rules
+
+### When Creating New Components
+- Always include TypeScript types for props
+- Include proper error handling
+- Add JSDoc comments for complex logic
+- Create corresponding test file
+- Follow component structure:
+  ```typescript
+  // Imports
+  // Types
+  // Component definition
+  // Helper functions (if needed)
+  // Export
+  ```
+
+### When Creating Services
+- Use dependency injection pattern
+- Implement proper error handling
+- Include retry logic for API calls
+- Add comprehensive logging
+- Write unit tests with mocks
+
+### When Creating API Endpoints
+- Validate all inputs
+- Use proper HTTP status codes
+- Implement rate limiting
+- Add authentication/authorization
+- Document with OpenAPI/Swagger
+
+### When Writing Tests
+- Follow AAA pattern (Arrange, Act, Assert)
+- Use descriptive test names
+- Mock external dependencies
+- Test both success and error cases
+- Aim for 80%+ code coverage
+
+## Error Handling
+
+### Error Handling Pattern
+```typescript
+try {
+  // Operation
+  const result = await riskyOperation();
+  return result;
+} catch (error) {
+  logger.error('Operation failed', { error, context });
+  throw new AppError('User-friendly message', { 
+    cause: error,
+    code: 'ERROR_CODE'
+  });
+}
+```
+
+### Custom Error Classes
+- Use custom error classes for different error types
+- Include error codes for programmatic handling
+- Log errors with appropriate context
+- Never expose sensitive data in error messages
+
+## Documentation Requirements
+
+### Function Documentation
+```typescript
+/**
+ * Retrieves user data from the database
+ * 
+ * @param userId - The unique identifier of the user
+ * @param options - Optional query parameters
+ * @returns Promise resolving to user data
+ * @throws {NotFoundError} When user doesn't exist
+ * @throws {DatabaseError} When database operation fails
+ * 
+ * @example
+ * ```typescript
+ * const user = await getUser('123', { includeProfile: true });
+ * ```
+ */
+async function getUser(
+  userId: string, 
+  options?: QueryOptions
+): Promise<User> {
+  // Implementation
+}
+```
+
+### File Headers
+```typescript
+/**
+ * @fileoverview User authentication service
+ * @module services/auth
+ * @requires jsonwebtoken
+ * @requires bcrypt
+ */
+```
+
+## Testing Rules
+
+### Test Structure
+- Group related tests with `describe` blocks
+- Use clear, descriptive test names
+- One assertion per test (when possible)
+- Use `beforeEach` for common setup
+- Clean up after tests
+
+### Mocking Strategy
+- Mock external dependencies (APIs, databases)
+- Use test doubles for complex objects
+- Avoid mocking the code under test
+- Reset mocks between tests
+
+### Test Coverage
+- All business logic must have tests
+- All API endpoints must have integration tests
+- Critical paths must have E2E tests
+- Edge cases must be covered
+
+## Security Rules
+
+### Never Commit
+- API keys or secrets
+- Database credentials
+- Private keys or certificates
+- Personal information
+- Debug logs with sensitive data
+
+### Always
+- Validate and sanitize user inputs
+- Use parameterized queries
+- Implement rate limiting
+- Use HTTPS for all communications
+- Keep dependencies updated
+
+### Authentication/Authorization
+- Use JWT tokens with short expiration
+- Implement refresh token rotation
+- Check permissions on every request
+- Log security events
+
+## Performance Rules
+
+### Optimization Guidelines
+- Lazy load non-critical resources
+- Implement pagination for large datasets
+- Use database indexes appropriately
+- Cache frequently accessed data
+- Optimize images and assets
+- Monitor bundle size
+
+### Database Queries
+- Use select only needed columns
+- Implement query result caching
+- Avoid N+1 query problems
+- Use database transactions properly
+
+## Git Commit Rules
+
+### Commit Message Format
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+### Types
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting)
+- `refactor`: Code refactoring
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks
+
+### Examples
+```
+feat(auth): add JWT token refresh mechanism
+
+Implement token refresh to improve security by reducing
+token lifetime while maintaining user session.
+
+Closes #123
+```
+
+## Code Review Guidelines
+
+### What to Look For
+- Code follows style guidelines
+- Tests are present and meaningful
+- Documentation is updated
+- No security vulnerabilities
+- Performance considerations addressed
+- Error handling is comprehensive
+
+### Review Checklist
+- [ ] Code compiles without errors
+- [ ] Tests pass
+- [ ] Code coverage meets requirements
+- [ ] No linting errors
+- [ ] Documentation updated
+- [ ] Security review completed
+- [ ] Performance impact assessed
+
+## Specific Tool Preferences
+
+### Logging
+- Use structured logging (JSON format)
+- Include correlation IDs
+- Log at appropriate levels
+- Never log sensitive data
+
+### API Design
+- Use RESTful conventions
+- Version APIs (e.g., /api/v1/)
+- Use plural nouns for resources
+- Use proper HTTP methods (GET, POST, PUT, DELETE)
+
+### Database
+- Use migrations for schema changes
+- Never modify production data directly
+- Use connection pooling
+- Implement proper indexing
+
+## When in Doubt
+
+1. Check existing code for patterns
+2. Refer to architecture documentation
+3. Ask for clarification in PR comments
+4. Follow principle of least surprise
+5. Prioritize code readability
+
+## Project-Specific Rules
+
+### [Add project-specific rules here]
+
+### Component Patterns
+- Use functional components with hooks
+- Implement proper prop validation
+- Extract reusable logic to custom hooks
+- Keep components focused and small
+
+### State Management
+- Use [Redux/Zustand/Context] for global state
+- Keep local state in components when possible
+- Implement proper state update patterns
+- Avoid prop drilling
+
+### API Integration
+- Use [Axios/Fetch] for HTTP requests
+- Implement request/response interceptors
+- Handle loading and error states
+- Cache responses when appropriate
+
+---
+
+*These rules are enforced by ESLint, Prettier, and code reviews.*
+*Last Updated: 2024-11-21*
